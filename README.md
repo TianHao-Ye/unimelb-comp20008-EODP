@@ -23,75 +23,24 @@ assignment. However the real dataset is unknown to you, as it would be reality a
 unknown data is what you will be assessed on.
 
 Nave data linkage without blocking (4 marks)
-For this part, data linkage without blocking is performed on two smaller data sets:
-abt small.csv and buy small.csv.
-Task - 1A: Using abt small.csv and buy small.csv, implement the linkage between the
-two data sets.
-Your code for this question is to be contained in a single Python le called task1a.py and
-produce a single csv le task1a.csv containing the following two column headings:
-idAbt,idBuy
-Each row in the datale must contain a pair of matched products. For example, if your
-algorithm only matched product 10102 from the Abt dataset with product
-203897877 from the Buy dataset your output task1a.csv would be as follows:
-idAbt, idBuy
-10102,203897877
-The performance is evaluated in terms of recall and precision and the marks in this section
-will be awarded based on the two measures of your algorithm.
-recall = tp=(tp + fn)
-precision = tp=(tp + fp)
-where tp (true-positive) is the number of true positive pairs, fp the number of false positive
-pairs, tn the number of true negatives, and fn the number of false negative pairs.
-Note: The python package textdistance implements many similarity functions for strings
-(https://pypi.org/project/textdistance/). You can use this package for the similarity
-calculations for strings. You may also choose to implement your own similarity functions.
 
 Blocking for ecient data linkage (4 marks)
-Blocking is a method to reduce the computational cost for record linkage.
-Task - 1B: Implement a blocking method for the linkage of the abt.csv and buy.csv data
-sets.
-Your code is be contained in a single Python le called task1b.py and must produce two
-csv les abt blocks.csv and buy blocks.csv, each containing the following two column
-headings:
-block_key, product_id
-The product id eld corresponds to the idAbt and idBuy of the abt.csv and buy.csv les
-respectively. Each row in the output les matches a product to a block. For example, if your
-algorithm placed product 10102 from the Abt dataset in blocks with block keys x & y, your
-abt blocks.csv would be as follows:
-block_key, product_id
-x,10102
-y,10102
-A block is uniquely identied by the block key. The same block key in the two block-les
-(abt blocks.csv and buy blocks.csv) indicates that the corresponding products co-occur
-in the same block.
-For example, if your algorithm placed the Abt product 10102 in block x and placed Buy
-product 203897877 in block x, your abt blocks.csv and buy blocks.csv would be as follows
-respectively:
-abt_blocks.csv:
-block_key, product_id
-x,10102
-buy_blocks.csv:
-block_key, product_id
-x,203897877
-The two products co-occur in the same block x.
-To measure the quality of blocking, we assume that when comparing a pair of records, the
-pair are always 100% similar and are a match. A pair of records are categorised as follows:
- a record-pair is a true positive if the pair are found in the ground truth set and also the
-pair co-occur in the same block.
- a record-pair is a false positive if the pair co-occur in some block but are not found in
-the ground truth set.
- a record-pair is a false negative if the pair do not co-occur in any block but are found
-in the ground truth set
 
- a record-pair is a true negative if the pair do not co-occur in any block and are also not
-found in the ground truth set.
-Then, the quality of blocking can be evaluated using the following two measures:
-PC (pair completeness) = tp=(tp + fn)
-RR (reduction ratio) = 1 􀀀 (tp + fp)=n
-where n is the total number of all possible record pairs from the two data sets
-(n = fp + fn + tp + tn).
-The marks in this section will be awarded based on the pair completeness and reduction ratio
-of your blocking algorithm.
-Note: The time taken to produce your blocking implementation must be linear in the number
-of items in the dataset. This means that you cannot, for example, compare each product to
-every other product in the dataset in order to allocate it to a block. Implementations that
-do so will be severely penalised.
+Report on the Data Linkage project(4 marks)
+
+Part 2 - Classication (13 marks)
+
+Each year, the World Bank publishes the World Development Indicators which provide high
+quality and international comparable statistics about global development and the ght against
+poverty [1]. As data scientists, we wish to understand how the information can be used to
+predict average lifespan in dierent countries. To this end, we have provided the world.csv
+le, which contains some of the World Development Indicators for each country and the
+life.csv le containing information about the average lifespan for each country (based on
+data from the World Health Organization) [2]. Each data le also contains a country name,
+country code and year as identiers for each record. These may be used to link the two
+datasets but should not be considered features.
+
+Comparing Classication Algorithms (3 marks)
+
+Your Report (4 marks)
+Feature Engineering and Selection(6 marks)
