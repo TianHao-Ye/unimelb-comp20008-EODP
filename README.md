@@ -29,7 +29,6 @@ Blocking for ecient data linkage (4 marks)
 Report on the Data Linkage project(4 marks)
 
 Part 2 - Classication (13 marks)
-
 Each year, the World Bank publishes the World Development Indicators which provide high
 quality and international comparable statistics about global development and the ght against
 poverty [1]. As data scientists, we wish to understand how the information can be used to
